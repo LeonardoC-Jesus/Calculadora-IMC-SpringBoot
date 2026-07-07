@@ -69,6 +69,4 @@ com.seuprojeto.imc
 
 ## Autor
 
-[Seu nome]
-[Link do LinkedIn]
-[Link do GitHub]
+Leonardo Cruz de Jesus
