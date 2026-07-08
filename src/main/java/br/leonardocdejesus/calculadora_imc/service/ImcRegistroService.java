@@ -1,5 +1,6 @@
 package br.leonardocdejesus.calculadora_imc.service;
 
+import br.leonardocdejesus.calculadora_imc.dto.ImcRegistroDto;
 import br.leonardocdejesus.calculadora_imc.exception.InvalidFormatException;
 import br.leonardocdejesus.calculadora_imc.exception.LessThanZeroException;
 import br.leonardocdejesus.calculadora_imc.model.ImcRegistro;
@@ -13,10 +14,15 @@ public class ImcRegistroService {
 
     List<ImcRegistro> historicoDeRegistros = new ArrayList<>();
 
-    public double registrarImc(ImcRegistro imcRegistro) {
-        if (imcRegistro.getPeso() < 0) throw new LessThanZeroException("Peso informado está abaixo de zero!");
-        if (imcRegistro.getAltura() < 0) throw new LessThanZeroException("Altura informada está abaixo de zero!");
-        validarFormatoAltura(imcRegistro.getAltura());
+    public double registrarImc(ImcRegistroDto imcRegistroDto) {
+        if (imcRegistroDto.getPeso() < 0) throw new LessThanZeroException("Peso informado está abaixo de zero!");
+        if (imcRegistroDto.getAltura() < 0) throw new LessThanZeroException("Altura informada está abaixo de zero!");
+        validarFormatoAltura(imcRegistroDto.getAltura());
+
+        ImcRegistro imcRegistro = ImcRegistro.builder()
+                .peso(imcRegistroDto.getPeso())
+                .altura(imcRegistroDto.getAltura())
+                .build();
 
         imcRegistro.setImc(imcRegistro.getPeso() * (imcRegistro.getAltura() * imcRegistro.getAltura()));
         imcRegistro.setClassificacao(classificarImc(imcRegistro.getImc()));
