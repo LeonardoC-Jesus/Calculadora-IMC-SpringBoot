@@ -24,10 +24,15 @@ public class ImcRegistroService {
                 .altura(imcRegistroDto.getAltura())
                 .build();
 
-        imcRegistro.setImc(imcRegistro.getPeso() / (imcRegistro.getAltura() * imcRegistro.getAltura()));
+        double imcCalculado = imcRegistro.getPeso() / (imcRegistro.getAltura() * imcRegistro.getAltura());
+        String imcFormatado = String.format("%.1f", imcCalculado);
+        imcFormatado = imcFormatado.replace(",", ".");
+
+        imcRegistro.setImc(Double.parseDouble(imcFormatado));
         imcRegistro.setClassificacao(classificarImc(imcRegistro.getImc()));
 
         historicoDeRegistros.add(imcRegistro);
+
         return imcRegistro.getImc();
     }
 
