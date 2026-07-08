@@ -24,7 +24,7 @@ public class ImcRegistroService {
                 .altura(imcRegistroDto.getAltura())
                 .build();
 
-        imcRegistro.setImc(imcRegistro.getPeso() * (imcRegistro.getAltura() * imcRegistro.getAltura()));
+        imcRegistro.setImc(imcRegistro.getPeso() / (imcRegistro.getAltura() * imcRegistro.getAltura()));
         imcRegistro.setClassificacao(classificarImc(imcRegistro.getImc()));
 
         historicoDeRegistros.add(imcRegistro);
