@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/v1/imc/salvar}" method="post">
+        <label>Peso:</label>
+        <input type="text" name="peso">
+        <label>Altura:</label>
+        <input type="text" name="altura">
+        <button type="submit">Calcular</button>
+        <p><span th:text="${imc_calculado}"></span></p>
+    </form>
+</body>
+</html>
