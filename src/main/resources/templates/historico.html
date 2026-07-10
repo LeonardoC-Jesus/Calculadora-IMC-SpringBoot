@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="<http://www.thymeleaf.org>">
+<head>
+    <meta charset="UTF-8">
+    <title>Historico de Imc</title>
+</head>
+<body>
+    <h1>Histórico de Imc's registrado:</h1>
+    <ul>
+        <li th:each="imc : ${historico_de_registros}">
+            Peso: <span th:text="${imc.peso}"></span><br>
+            Altura: <span th:text="${imc.altura}"></span><br>
+            Imc: <span th:text="${imc.imc}"></span><br>
+            Classificação: <span th:text="${imc.classificacao}"></span>
+        </li><br>
+    </ul>
+
+    <a th:href="@{/v1/imc}">
+        Voltar
+    </a>
+</body>
+</html>
