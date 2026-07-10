@@ -10,6 +10,6 @@ import lombok.*;
 public class ImcRegistroDto {
 
     private double peso;
-    private double altura;
+    private String altura;
 
 }
