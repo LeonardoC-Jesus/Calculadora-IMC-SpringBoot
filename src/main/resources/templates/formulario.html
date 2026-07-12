@@ -12,6 +12,7 @@
         <input type="text" name="altura">
         <button type="submit">Calcular</button>
         <p><span th:text="${imc_calculado}"></span></p>
+        <p><span th:text="${erro}"></span></p>
     </form>
     <a th:href="@{/v1/imc/historico}">
         Ver Histórico
