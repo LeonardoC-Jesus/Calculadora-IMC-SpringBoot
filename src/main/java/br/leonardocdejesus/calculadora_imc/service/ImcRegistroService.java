@@ -15,10 +15,10 @@ public class ImcRegistroService {
     List<ImcRegistro> historicoDeRegistros = new ArrayList<>();
 
     public double registrarImc(ImcRegistroDto imcRegistroDto) {
-        final String FORMATO_ALTURA = "\\d\\.{2}$";
+        final String FORMATO_ALTURA = "^\\d\\.\\d{2}$";
 
         if (imcRegistroDto.getPeso() < 0) throw new LessThanZeroException("Peso informado está abaixo de zero!");
-        if (!imcRegistroDto.getAltura().matches(FORMATO_ALTURA)) throw new InvalidFormatException("A altura não está no formato correto. E x: 1.70");
+        if (!imcRegistroDto.getAltura().matches(FORMATO_ALTURA)) throw new InvalidFormatException("A altura não está no formato correto. Ex: 1.70");
         double altura = Double.parseDouble(imcRegistroDto.getAltura());
         if (altura < 0) throw new LessThanZeroException("Altura informada está abaixo de zero!");
 
