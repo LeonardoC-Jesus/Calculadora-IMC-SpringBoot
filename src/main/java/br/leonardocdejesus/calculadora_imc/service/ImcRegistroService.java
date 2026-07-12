@@ -20,7 +20,6 @@ public class ImcRegistroService {
         if (imcRegistroDto.getPeso() < 0) throw new LessThanZeroException("Peso informado está abaixo de zero!");
         if (!imcRegistroDto.getAltura().matches(FORMATO_ALTURA)) throw new InvalidFormatException("A altura não está no formato correto. Ex: 1.70");
         double altura = Double.parseDouble(imcRegistroDto.getAltura());
-        if (altura < 0) throw new LessThanZeroException("Altura informada está abaixo de zero!");
 
         ImcRegistro imcRegistro = ImcRegistro.builder()
                 .peso(imcRegistroDto.getPeso())
