@@ -3,6 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #444343;
+
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            padding: 4rem;
+
+            background-color: rgba(255, 255, 255, 0.15);
+            width: 18rem;
+            height: 20rem;
+
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        form label {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        form input {
+            height: 2.6vh;
+            margin-bottom: 2rem;
+            padding: 5px;
+        }
+
+        form button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: #1E55FF;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        p {
+            margin: 20px;
+            text-align: center;
+        }
+
+        #imc {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        #erro {
+            font-size: 1.4rem;
+            color: #f86e6e;
+        }
+    </style>
 </head>
 <body>
     <form th:action="@{/v1/imc/salvar}" method="post">
@@ -11,8 +80,8 @@
         <label>Altura:</label>
         <input type="text" name="altura">
         <button type="submit">Calcular</button>
-        <p><span th:text="${imc_calculado}"></span></p>
-        <p><span th:text="${erro}"></span></p>
+        <p><span id="imc" th:text="${imc_calculado}"></span></p>
+        <p><span id="erro" th:text="${erro}"></span></p>
     </form>
     <a th:href="@{/v1/imc/historico}">
         Ver Histórico
