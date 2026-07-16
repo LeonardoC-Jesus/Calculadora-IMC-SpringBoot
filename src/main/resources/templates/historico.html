@@ -3,17 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Historico de Imc</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #444343;
+
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        a {
+            margin-top: 25px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: #1E55FF;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 550;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        div {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 4rem;
+            background-color: rgba(255, 255, 255, 0.15);
+            width: 25rem;
+
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        div h1 {
+            margin-bottom: 2rem;
+        }
+
+        div ul li {
+            list-style: none;
+            font-size: large;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            margin: 2rem;
+        }
+
+
+    </style>
 </head>
 <body>
-    <h1>Histórico de Imc's registrado:</h1>
-    <ul>
-        <li th:each="imc : ${historico_de_registros}">
-            Peso: <span th:text="${imc.peso}"></span><br>
-            Altura: <span th:text="${imc.altura}"></span><br>
-            Imc: <span th:text="${imc.imc}"></span><br>
-            Classificação: <span th:text="${imc.classificacao}"></span>
-        </li><br>
-    </ul>
+    <div>
+        <h1>Histórico de Imc's registrado:</h1>
+        <ul>
+            <li th:each="imc : ${historico_de_registros}">
+                Peso: <span th:text="${imc.peso}"></span><br>
+                Altura: <span th:text="${imc.altura}"></span><br>
+                Imc: <span th:text="${imc.imc}"></span><br>
+                Classificação: <span th:text="${imc.classificacao}"></span>
+            </li><br>
+        </ul>
+    </div>
 
     <a th:href="@{/v1/imc}">
         Voltar
